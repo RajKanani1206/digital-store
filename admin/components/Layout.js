@@ -1,15 +1,12 @@
-import { useSession, signIn, signOut } from "next-auth/react";
 import Nav from "@/components/Nav";
 import { useState } from "react";
-import Logo from "@/components/Logo";
 
 export default function Layout({ children }) {
   const [showNav, setShowNav] = useState(false);
-  const { data: session } = useSession();
 
   return (
     <div className="bg-bgGray min-h-screen ">
-      <div className="block md:hidden flex items-center p-4">
+      <div className="md:hidden flex items-center p-4">
         <button onClick={() => setShowNav(true)}>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-6 h-6">
             <path
@@ -19,9 +16,6 @@ export default function Layout({ children }) {
             />
           </svg>
         </button>
-        <div className="flex grow justify-center mr-6">
-          <Logo />
-        </div>
       </div>
       <div className="flex">
         <Nav show={showNav} />
